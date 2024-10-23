@@ -51,6 +51,9 @@ contract LotteryAnvil is Ownable, ReentrancyGuard {
         GameStatus status;
         uint256 prizePool;
         uint256 numberOfWinners;
+        uint256 goldWinners;
+        uint256 silverWinners;
+        uint256 bronzeWinners;
         uint256[4] winningNumbers;
         Difficulty difficulty;
         uint256 drawInitiatedBlock;
@@ -807,6 +810,9 @@ contract LotteryAnvil is Ownable, ReentrancyGuard {
             status: status,
             prizePool: gamePrizePool[gameId],
             numberOfWinners: totalWinners,
+            goldWinners: goldWinners,
+            silverWinners: silverWinners,
+            bronzeWinners: bronzeWinners,
             winningNumbers: [gameWinningNumbers[gameId][0], gameWinningNumbers[gameId][1], gameWinningNumbers[gameId][2], gameWinningNumbers[gameId][3]],
             difficulty: gameDifficulty[gameId],
             drawInitiatedBlock: gameDrawInitiated[gameId] ? gameRandomBlock[gameId] - DRAW_DELAY_SECURITY_BUFFER : 0,
